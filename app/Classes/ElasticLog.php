@@ -52,7 +52,7 @@ class ElasticLog
     	fclose($file);
 
 
-		header('Content-Description: File Transfer');
+		/*header('Content-Description: File Transfer');
 		header('Content-Type: text/csv');
 		header('Content-Disposition: attachment; filename=' . $logname);
 		header('Content-Transfer-Encoding: binary');
@@ -62,11 +62,10 @@ class ElasticLog
 	
 		ob_clean();
 		flush();
-		readfile($this->_pathLogCount);
+		readfile($this->_pathLogCount);*/
 
 		unlink($this->_pathLog);
 		unlink($this->_pathLogCount);
-		exit;
     }
 
     public function getLog(){

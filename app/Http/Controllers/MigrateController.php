@@ -167,6 +167,7 @@ class MigrateController extends Controller
         }
 
         $elasticLog->outputLog();  
+        return redirect("/list");
     }
 
 }

@@ -48,6 +48,19 @@ class ElasticResponse
 					$obj->$key = $value;
 				}
 
+				if(isset($hit['_source']['data'])){
+
+					setlocale( LC_ALL, 'pt_BR', 'pt_BR.iso-8859-1', 'pt_BR.utf-8', 'portuguese' );
+					date_default_timezone_set( 'America/Sao_Paulo' );
+
+					$data = $hit['_source']['data'];
+					$dia = strftime('%d', strtotime($data));
+					$mes = strftime('%B', strtotime($data));
+					$ano = strftime('%Y', strtotime($data));
+					$data = $dia . ' de ' . substr($mes, 0, 3) . '. de ' . $ano;
+					$obj->data = $data;
+				}
+
 				if(isset($hit['highlight'])){
 
 					$highlights = array();

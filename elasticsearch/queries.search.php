@@ -1,12 +1,12 @@
 <?php
 
+
 $queries = array(
 
 	'query' => array(
 		'function_score' => [  
-
-		    "query"=>[
-		       	"bool"=> [
+			"query"=>[
+       			"bool"=> [
 
 		            "must"=> [
 
@@ -33,31 +33,30 @@ $queries = array(
 		    ],
 
 		    "script_score"=>[
-		        'script' => [
+		        	'script' => [
 		            'source' => " _score * (1  +(doc['popularidade'].value*0.01))"
-		        ]
+        			]
 		    ],
 	     	'boost_mode' => 'replace'
 		]
 	),
 
 
-   'highlight' => array(
+   	'highlight' => array(
 
-   		"max_analyzed_offset" => 1000000,
-   	    "pre_tags" => ["<b>"],
-   		"post_tags" => ["</b>"],
-    	"order"=> "score",
-        "fields"=> [
+		"max_analyzed_offset" => 1000000,
+		"pre_tags" => ["<b>"],
+		"post_tags" => ["</b>"],
+		"order"=> "score",
+		"fields"=> [
       		"main_content"=> [
-      			"type"=> "fvh",
+	 			"type"=> "fvh",
         		"fragment_size"=> 300,
-        	//"fragment_offset" => 100,
         		"no_match_size" => 300,
         		"number_of_fragments"=> 1,
         		"highlight_query"=> [
-          			"bool"=> [
-           				"must"=> [
+      			"bool"=> [
+       				"must"=> [
               				"match"=> [
                 				"main_content"=> [
                   					"query"=> $search,
@@ -67,7 +66,7 @@ $queries = array(
                 				]
               				]
             			],
-            
+        
 	            		"should"=> [
 		                	"match_phrase"=> [
 		                		"main_content"=> [
@@ -78,42 +77,37 @@ $queries = array(
 	                			]
 	              			]
 	            		],
-            			"minimum_should_match"=> 0
-            		]
-            	]
-            ],
-
-      		"conteudo_pdf"=> [
-      			"type"=> "fvh",
+        				"minimum_should_match"=> 0
+        			]
+        		]
+       		],
+			"conteudo_pdf"=> [
+	 			"type"=> "fvh",
         		"fragment_size"=> 300,
-        	//"fragment_offset" => 100,
-        		//"no_match_size" => 250,
         		"number_of_fragments"=> 1,
         		"highlight_query"=> [
-          			"bool"=> [
-           				"must"=> [
+      			"bool"=> [
+       				"must"=> [
               				"match"=> [
                 				"conteudo_pdf"=> [
                   					"query"=> $search,
                 				]
               				]
-            			],
-            
-	            	"should"=> [
-	                	"match_phrase"=> [
-	                		"conteudo_pdf"=> [
-	                  			"query"=> $search,
-	                  			"slop"=> 1,
-	                  			"boost"=> 10.0
-                			]
-              			]
-            		],
-            		
-            		"minimum_should_match"=> 0
-            		]
-            	]
-            ]
-
-        ]
+        				],
+		            	"should"=> [
+		                	"match_phrase"=> [
+		                		"conteudo_pdf"=> [
+		                  			"query"=> $search,
+		                  			"slop"=> 1,
+		                  			"boost"=> 10.0
+	                			]
+	              			]
+	            		],
+        		
+        				"minimum_should_match"=> 0
+        			]
+        		]
+        	]
+    	]
     ),
 );

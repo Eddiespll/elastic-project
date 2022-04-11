@@ -62,6 +62,7 @@ a.title:visited {
 
 td.title{
     width:90%;
+    padding-top: 20px;
 }
 
 td.options{
@@ -75,7 +76,6 @@ td.icon{
 }
 
 div.tdicon{
-    top: 19px;
     right: 0;
     position: absolute;
 }
@@ -279,6 +279,47 @@ div.highlight{
 
 .link-option:hover{
     text-decoration: underline !important;
+}
+
+.link-list{
+    display: none;
+}
+
+.link-url:hover .link-result{
+    text-decoration: underline !important;
+}
+
+.toggle-list{
+    font-size:25px;
+    cursor:pointer;
+}
+
+.index-date{
+    color: #70757a;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    line-height: 1.58;
+    text-align: left;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.index-url{
+    padding-bottom: 6px;
+    padding-top: 1px;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,.10);
+    cursor: pointer;
+    font-weight: normal;
+    font-size: small;
+    line-height: 1.58;
+    text-align: left;
+}
+
+.index-url > a{
+    text-decoration: none !important;
+    color:#202124 !important;
 }
 
 @keyframes fade {

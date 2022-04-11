@@ -84,7 +84,7 @@ class MigrateController extends Controller
                     if($rules->indexar_pdf == true || $rules->download_pdf == true){
                         $links = $elasticMigrate->getDomLinks($domCrawler);
                     }
-
+                    
                     foreach($links as $link){
 
                         if($link){
@@ -143,7 +143,8 @@ class MigrateController extends Controller
                         'popularidade' => $popularidade,
                         'body' => $domHelper->filterBody($body),
                         'conteudo_pdf' => $pdfContent,
-                        'links_pdf' => $pdfLinks
+                        'links_pdf' => $pdfLinks,
+                        'data' => date('Y-m-d')
                     );
 
                     $content = array_merge($content, $contentConfigs);

@@ -57,6 +57,22 @@ function bindEvents(){
 	 	modal.find('input[name=id]').val(id);
 		modal.modal("show");
 	});
+
+
+	$(".toggle-list").click(function(){
+
+		var table = $(this).parent().closest('table');
+
+		if($(this).hasClass('bi-node-plus')){
+			table.find('.link-list').show();
+			$(this).removeClass('bi-node-plus');
+			$(this).addClass('bi-node-minus');
+		}else{
+			table.find('.link-list').hide();
+			$(this).removeClass('bi-node-minus');
+			$(this).addClass('bi-node-plus');
+		}	
+	});
 }
 
 function createFieldDocument(el){

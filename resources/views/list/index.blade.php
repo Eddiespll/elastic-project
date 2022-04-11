@@ -19,10 +19,15 @@
 				<table class="table table-list">
 					<tbody>
 						<tr class='theader'>
-							<td class='title'>Lista {{ $list->name }}</td>
+							<td style='padding-top:15px;color: #198754;background-color: #fff;border-bottom:none'>
+								<div><i class="bi bi-node-plus toggle-list"></i></div>
+							</td>
+							<td class='title'>
+								<span>Lista {{ $list->name }} - {{ count($list->links)  }} Links</span>
+							</td>
 
 							<td class='icon'>
-								<div class='tdicon'><a href="/list/rule/insert?id={{ $list->id }}"><i class="bi bi-gear"></i></a></div>
+								<div class='tdicon' style='top:19px'><a href="/list/rule/insert?id={{ $list->id }}"><i class="bi bi-gear"></i></a></div>
 							</td>
 
 							<td class='options'>
@@ -45,12 +50,12 @@
 									    </li> 
 								  	</ul>
 								</div>
-							</td>
+							</td>				
 						</tr>
 
 						@foreach ($list->links as $key => $link)
-						<tr>
-							<td colspan="2">{{ $link }}</td>
+						<tr class='link-list'>
+							<td colspan="3">{{ $link }}</td>
 							<td class='options'>
 								<div class="dropdown">
 								  	<button class="btn btn-default dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

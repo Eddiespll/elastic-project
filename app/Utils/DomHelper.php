@@ -16,7 +16,7 @@ class DomHelper
     }
 
     public function filterPDF(string $content){
-        return $this->tornaTextoPesquisavel($content);
+        return $content;
     }
 
     public function filterTag(string $tag){

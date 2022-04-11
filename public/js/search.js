@@ -15,7 +15,6 @@ $(function(){
  	if(search.val() == ""){
  		search.focus();
  	}
-	
 });
 
 function handleSearch(el, ev){

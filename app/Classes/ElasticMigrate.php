@@ -110,7 +110,7 @@ class ElasticMigrate
         $filesize = strlen($content);
 
         $pdf = $pdfParser->parseFile($href); 
-        $text = $pdf->getText();
+        $text = $domHelper->filterPDF($pdf->getText());
 
         return array(
         	'href' => $href,

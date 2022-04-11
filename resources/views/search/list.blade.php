@@ -9,12 +9,20 @@
 
 		<div>
 	        <div class='row'>
-	            <div class='col-sm-12'>
+
+	            <div class='col-sm-12 link-url'>
+	            	<div class='index-url'><a href="{{ $result->url }}">{{ $result->url }}</a></div>
 	              	<h3><a class="title link-result" data-id="{{ $result->id }}" target="_blank" href="{{ $result->url }}">{{ $result->title }}</a></h3>
 	            </div>
 	            <div class='col-sm-12 highlight'>
       			 	{!! $result->highlight !!}
 	            </div>
+
+	            @if(isset($result->data))
+	        	 <div class='col-sm-12 highlight'>
+      			 	<span class='index-data'>{{ $result->data }}</span>
+	            </div>
+	        	@endif
 
 	            @if (isset($result->links_pdf) && !empty($result->links_pdf))
 	            	<div class="anexos-wrapper">
@@ -28,6 +36,7 @@
 	        			@endforeach
 	        		</div>
 	        	@endif
+	        	
 	        </div>
 
 	        <br />

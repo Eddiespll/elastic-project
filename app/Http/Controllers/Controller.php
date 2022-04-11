@@ -15,6 +15,7 @@ class Controller extends BaseController
     public function __construct()
     {  
        /*
+       $teste = 'teste';
         $indexSearch = new ElasticIndex('index_search'); 
         $indexTags = new ElasticIndex('index_tags');	
         $indexList = new ElasticIndex('index_list');

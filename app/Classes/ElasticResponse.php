@@ -57,7 +57,7 @@ class ElasticResponse
 						foreach($value as $k => $v){
 							$highlights[] = trim(ucfirst($v)) . '...'; break;
 						}
-						break;
+						//break;
 					}
 
 					$obj->highlight = implode(" ", $highlights);

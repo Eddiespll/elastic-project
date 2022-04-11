@@ -99,6 +99,7 @@ class ElasticMigrate
             $href = 'https://'.$host.'/'.$href;
         }
 
+        //$href = "tmp/pt996DIRBEN-INSS-5.pdf";
         $ctx = stream_context_create(array('http'=>
             array(
                 'timeout' => 10,  

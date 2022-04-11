@@ -34,6 +34,11 @@ class MigrateController extends Controller
 
     public function index(){
 
+        ini_set('memory_limit', '-1');
+        ini_set('max_execution_time', '100000');
+        ini_set('post_max_size', '100000M');
+        ini_set('upload_max_filesize', '100000M');
+
         $id = $this->_request->id;
 
         $elasticMigrate = new ElasticMigrate($this->_index);
